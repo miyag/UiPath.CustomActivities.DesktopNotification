@@ -1,0 +1,37 @@
+{
+  "name": "studioVersion-18.4.5",
+  "description": "studioVersion-18.4.5",
+  "main": "Main.xaml",
+  "dependencies": {
+    "DesktopNotification": "[1.0.0]",
+    "UiPath.Excel.Activities": "[2.5.1]",
+    "UiPath.Mail.Activities": "[1.3.0]",
+    "UiPath.System.Activities": "[18.4.2]",
+    "UiPath.UIAutomation.Activities": "[18.4.5]"
+  },
+  "webServices": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "19.12.0.61",
+  "projectVersion": "1.0.0.0",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "isPausable": true,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "fileInfos": []
+  },
+  "expressionLanguage": "VisualBasic"
+}

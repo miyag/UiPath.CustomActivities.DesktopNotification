@@ -1,0 +1,322 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="DesktopNotification.Workflow1" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap2010:WorkflowViewState.IdRef="DesktopNotification.Workflow1_1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:d="clr-namespace:DesktopNotification;assembly=DesktopNotification"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>DesktopNotification</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>DesktopNotificationTest</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Int32" Name="waitSec" />
+      <Variable x:TypeArguments="x:Int32" Name="idx" />
+    </Sequence.Variables>
+    <DoWhile sap2010:WorkflowViewState.IdRef="DoWhile_1">
+      <DoWhile.Condition>
+        <mca:CSharpValue x:TypeArguments="x:Boolean">idx &lt; 100</mca:CSharpValue>
+      </DoWhile.Condition>
+      <Sequence sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="x:String" Name="variable1" />
+        </Sequence.Variables>
+        <Assign sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Int32">
+              <mca:CSharpReference x:TypeArguments="x:Int32">idx</mca:CSharpReference>
+            </OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Int32">
+              <mca:CSharpValue x:TypeArguments="x:Int32">idx+1</mca:CSharpValue>
+            </InArgument>
+          </Assign.Value>
+        </Assign>
+        <If sap2010:WorkflowViewState.IdRef="If_1">
+          <If.Condition>
+            <InArgument x:TypeArguments="x:Boolean">
+              <mca:CSharpValue x:TypeArguments="x:Boolean">idx &lt;= 25</mca:CSharpValue>
+            </InArgument>
+          </If.Condition>
+          <If.Then>
+            <d:ShowMessage ColorTheme="White" FontSize="12" sap2010:WorkflowViewState.IdRef="ShowMessage_1" Title="title" WindowPosition="TopLeft">
+              <d:ShowMessage.Message>
+                <InArgument x:TypeArguments="x:String">
+                  <mca:CSharpValue x:TypeArguments="x:String">"message" + idx.ToString()</mca:CSharpValue>
+                </InArgument>
+              </d:ShowMessage.Message>
+            </d:ShowMessage>
+          </If.Then>
+        </If>
+        <If sap2010:WorkflowViewState.IdRef="If_2">
+          <If.Condition>
+            <InArgument x:TypeArguments="x:Boolean">
+              <mca:CSharpValue x:TypeArguments="x:Boolean">idx &gt; 25 &amp;&amp; idx &lt;= 50</mca:CSharpValue>
+            </InArgument>
+          </If.Condition>
+          <If.Then>
+            <d:ShowMessage ColorTheme="Black" FontSize="12" sap2010:WorkflowViewState.IdRef="ShowMessage_2" Title="title" WindowPosition="TopRight">
+              <d:ShowMessage.Message>
+                <InArgument x:TypeArguments="x:String">
+                  <mca:CSharpValue x:TypeArguments="x:String">"message" + idx.ToString()</mca:CSharpValue>
+                </InArgument>
+              </d:ShowMessage.Message>
+            </d:ShowMessage>
+          </If.Then>
+        </If>
+        <If sap2010:WorkflowViewState.IdRef="If_3">
+          <If.Condition>
+            <InArgument x:TypeArguments="x:Boolean">
+              <mca:CSharpValue x:TypeArguments="x:Boolean">idx &gt; 50 &amp;&amp; idx &lt;= 75</mca:CSharpValue>
+            </InArgument>
+          </If.Condition>
+          <If.Then>
+            <d:ShowMessage ColorTheme="Gray" FontSize="12" sap2010:WorkflowViewState.IdRef="ShowMessage_3" Title="title" WindowPosition="BottomLeft">
+              <d:ShowMessage.Message>
+                <InArgument x:TypeArguments="x:String">
+                  <mca:CSharpValue x:TypeArguments="x:String">"message" + idx.ToString()</mca:CSharpValue>
+                </InArgument>
+              </d:ShowMessage.Message>
+            </d:ShowMessage>
+          </If.Then>
+        </If>
+        <If sap2010:WorkflowViewState.IdRef="If_4">
+          <If.Condition>
+            <InArgument x:TypeArguments="x:Boolean">
+              <mca:CSharpValue x:TypeArguments="x:Boolean">idx &gt; 75</mca:CSharpValue>
+            </InArgument>
+          </If.Condition>
+          <If.Then>
+            <d:ShowMessage ColorTheme="Blue" FontSize="12" sap2010:WorkflowViewState.IdRef="ShowMessage_4" Title="title" WindowPosition="BottomRight">
+              <d:ShowMessage.Message>
+                <InArgument x:TypeArguments="x:String">
+                  <mca:CSharpValue x:TypeArguments="x:String">"message" + idx.ToString()</mca:CSharpValue>
+                </InArgument>
+              </d:ShowMessage.Message>
+            </d:ShowMessage>
+          </If.Then>
+        </If>
+        <Delay sap2010:WorkflowViewState.IdRef="Delay_4">
+          <InArgument x:TypeArguments="x:TimeSpan">
+            <mca:CSharpValue x:TypeArguments="x:TimeSpan">new TimeSpan(0,0,0,0,1)</mca:CSharpValue>
+          </InArgument>
+        </Delay>
+      </Sequence>
+    </DoWhile>
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">
+          <mca:CSharpReference x:TypeArguments="x:Int32">idx</mca:CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">0</InArgument>
+      </Assign.Value>
+    </Assign>
+    <DoWhile sap2010:WorkflowViewState.IdRef="DoWhile_2">
+      <DoWhile.Condition>
+        <mca:CSharpValue x:TypeArguments="x:Boolean">idx &lt; 100</mca:CSharpValue>
+      </DoWhile.Condition>
+      <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="x:String" Name="variable1" />
+        </Sequence.Variables>
+        <Assign sap2010:WorkflowViewState.IdRef="Assign_3">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Int32">
+              <mca:CSharpReference x:TypeArguments="x:Int32">idx</mca:CSharpReference>
+            </OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Int32">
+              <mca:CSharpValue x:TypeArguments="x:Int32">idx+1</mca:CSharpValue>
+            </InArgument>
+          </Assign.Value>
+        </Assign>
+        <If sap2010:WorkflowViewState.IdRef="If_5">
+          <If.Condition>
+            <InArgument x:TypeArguments="x:Boolean">
+              <mca:CSharpValue x:TypeArguments="x:Boolean">idx &lt;= 25</mca:CSharpValue>
+            </InArgument>
+          </If.Condition>
+          <If.Then>
+            <d:ShowProgressBar ColorTheme="White" FontSize="12" sap2010:WorkflowViewState.IdRef="ShowProgressBar_2" Title="title" WindowPosition="TopLeft">
+              <d:ShowProgressBar.Message>
+                <InArgument x:TypeArguments="x:String">
+                  <mca:CSharpValue x:TypeArguments="x:String">"message" + idx.ToString()</mca:CSharpValue>
+                </InArgument>
+              </d:ShowProgressBar.Message>
+              <d:ShowProgressBar.ProgressPercentage>
+                <InArgument x:TypeArguments="x:Int32">
+                  <mca:CSharpValue x:TypeArguments="x:Int32">idx</mca:CSharpValue>
+                </InArgument>
+              </d:ShowProgressBar.ProgressPercentage>
+            </d:ShowProgressBar>
+          </If.Then>
+        </If>
+        <If sap2010:WorkflowViewState.IdRef="If_6">
+          <If.Condition>
+            <InArgument x:TypeArguments="x:Boolean">
+              <mca:CSharpValue x:TypeArguments="x:Boolean">idx &gt; 25 &amp;&amp; idx &lt;= 50</mca:CSharpValue>
+            </InArgument>
+          </If.Condition>
+          <If.Then>
+            <d:ShowProgressBar ColorTheme="Black" FontSize="12" sap2010:WorkflowViewState.IdRef="ShowProgressBar_3" Title="title" WindowPosition="TopRight">
+              <d:ShowProgressBar.Message>
+                <InArgument x:TypeArguments="x:String">
+                  <mca:CSharpValue x:TypeArguments="x:String">"message" + idx.ToString()</mca:CSharpValue>
+                </InArgument>
+              </d:ShowProgressBar.Message>
+              <d:ShowProgressBar.ProgressPercentage>
+                <InArgument x:TypeArguments="x:Int32">
+                  <mca:CSharpValue x:TypeArguments="x:Int32">idx</mca:CSharpValue>
+                </InArgument>
+              </d:ShowProgressBar.ProgressPercentage>
+            </d:ShowProgressBar>
+          </If.Then>
+        </If>
+        <If sap2010:WorkflowViewState.IdRef="If_7">
+          <If.Condition>
+            <InArgument x:TypeArguments="x:Boolean">
+              <mca:CSharpValue x:TypeArguments="x:Boolean">idx &gt; 50 &amp;&amp; idx &lt;= 75</mca:CSharpValue>
+            </InArgument>
+          </If.Condition>
+          <If.Then>
+            <d:ShowProgressBar ColorTheme="Gray" FontSize="12" sap2010:WorkflowViewState.IdRef="ShowProgressBar_4" Title="title" WindowPosition="BottomLeft">
+              <d:ShowProgressBar.Message>
+                <InArgument x:TypeArguments="x:String">
+                  <mca:CSharpValue x:TypeArguments="x:String">"message" + idx.ToString()</mca:CSharpValue>
+                </InArgument>
+              </d:ShowProgressBar.Message>
+              <d:ShowProgressBar.ProgressPercentage>
+                <InArgument x:TypeArguments="x:Int32">
+                  <mca:CSharpValue x:TypeArguments="x:Int32">idx</mca:CSharpValue>
+                </InArgument>
+              </d:ShowProgressBar.ProgressPercentage>
+            </d:ShowProgressBar>
+          </If.Then>
+        </If>
+        <If sap2010:WorkflowViewState.IdRef="If_8">
+          <If.Condition>
+            <InArgument x:TypeArguments="x:Boolean">
+              <mca:CSharpValue x:TypeArguments="x:Boolean">idx &gt; 75</mca:CSharpValue>
+            </InArgument>
+          </If.Condition>
+          <If.Then>
+            <d:ShowProgressBar ColorTheme="Blue" FontSize="12" sap2010:WorkflowViewState.IdRef="ShowProgressBar_5" Title="title" WindowPosition="BottomRight">
+              <d:ShowProgressBar.Message>
+                <InArgument x:TypeArguments="x:String">
+                  <mca:CSharpValue x:TypeArguments="x:String">"message" + idx.ToString()</mca:CSharpValue>
+                </InArgument>
+              </d:ShowProgressBar.Message>
+              <d:ShowProgressBar.ProgressPercentage>
+                <InArgument x:TypeArguments="x:Int32">
+                  <mca:CSharpValue x:TypeArguments="x:Int32">idx</mca:CSharpValue>
+                </InArgument>
+              </d:ShowProgressBar.ProgressPercentage>
+            </d:ShowProgressBar>
+          </If.Then>
+        </If>
+        <Delay sap2010:WorkflowViewState.IdRef="Delay_5">
+          <InArgument x:TypeArguments="x:TimeSpan">
+            <mca:CSharpValue x:TypeArguments="x:TimeSpan">new TimeSpan(0,0,0,0,50)</mca:CSharpValue>
+          </InArgument>
+        </Delay>
+      </Sequence>
+    </DoWhile>
+    <Delay sap2010:WorkflowViewState.IdRef="Delay_6">
+      <InArgument x:TypeArguments="x:TimeSpan">
+        <mca:CSharpValue x:TypeArguments="x:TimeSpan">new TimeSpan(0,0,0,waitSec)</mca:CSharpValue>
+      </InArgument>
+    </Delay>
+    <d:CloseWindow sap2010:WorkflowViewState.IdRef="CloseWindow_1" />
+    <Delay sap2010:WorkflowViewState.IdRef="Delay_2">
+      <InArgument x:TypeArguments="x:TimeSpan">
+        <mca:CSharpValue x:TypeArguments="x:TimeSpan">new TimeSpan(0,0,0,waitSec)</mca:CSharpValue>
+      </InArgument>
+    </Delay>
+    <sads:DebugSymbol.Symbol>d31DOlxVc2Vyc1xtaXlhZ2lcRG9jdW1lbnRzXFZpc3VhbCBTdHVkaW8gMjAxNVxQcm9qZWN0c1xVaVBhdGguRGVza3RvcE5vdGlmaWNhdGlvbi5BY3Rpdml0aWVzXEN1c3RvbUFjdGl2aXR5VGVzdFxXb3JrZmxvdzEueGFtbEUoA40CDgIBAS0FhwEPAgFfiAEFkQEOAgFakgEFgAIPAgELgQIFhQINAgEHhgIFhgJGAgEGhwIFiwINAgECLwkvVAMBmwExB4YBEgIBYI8BL48BMAIBXosBC4sBUwIBW5QBCZQBVAIBV5YBB/8BEgIBDIMCCYMCZAIBCIkCCYkCZAIBAzUJQBIDAZIBQQlQDgMBhwFRCWAOAgF8YQlwDgIBcXEJgAEOAgFmgQEJhQERAgFhmgEJpQESAgFOpgEJugEOAgE/uwEJzwEOAgEw0AEJ5AEOAgEh5QEJ+QEOAgES+gEJ/gERAgENPQ89UQMBlwE4DzhXAwGTAUQPRFoDAYgBSA1OHQMBjAFUD1RxAgF9WA1eHQMBgQFkD2RxAgFyaA1uHQIBdnQPdFkCAWd4DX4dAgFrgwENgwFkAgFiogEPogFRAgFTnQEPnQFXAgFPqQEPqQFaAgFArQENuAEhAgFEvgEPvgFxAgExwgENzQEhAgE10wEP0wFxAgEi1wEN4gEhAgEm6AEP6AFZAgET7AEN9wEhAgEX/AEN/AFlAgEOSxNLawMBjgFIc0h6AwGNAVsTW2sDAYMBWHNYegMBggFrE2trAgF4aHJoeQIBd3sTe2sCAW14cnh5AgFssAETsAFrAgFKtQETtQFTAgFGrQF7rQGCAQIBRcUBE8UBawIBO8oBE8oBUwIBN8IBe8IBggECATbaARPaAWsCASzfARPfAVMCASjXAXrXAYEBAgEn7wET7wFrAgEd9AET9AFTAgEZ7AF67AGBAQIBGA==</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="464,62.6666666666667" />
+      <sap2010:ViewStateData Id="ShowMessage_1" sap:VirtualizedContainerService.HintSize="288.666666666667,90.6666666666667" />
+      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="464,245.333333333333" />
+      <sap2010:ViewStateData Id="ShowMessage_2" sap:VirtualizedContainerService.HintSize="288.666666666667,90.6666666666667" />
+      <sap2010:ViewStateData Id="If_2" sap:VirtualizedContainerService.HintSize="464,245.333333333333" />
+      <sap2010:ViewStateData Id="ShowMessage_3" sap:VirtualizedContainerService.HintSize="288.666666666667,90.6666666666667" />
+      <sap2010:ViewStateData Id="If_3" sap:VirtualizedContainerService.HintSize="464,245.333333333333" />
+      <sap2010:ViewStateData Id="ShowMessage_4" sap:VirtualizedContainerService.HintSize="288.666666666667,90.6666666666667" />
+      <sap2010:ViewStateData Id="If_4" sap:VirtualizedContainerService.HintSize="464,245.333333333333" />
+      <sap2010:ViewStateData Id="Delay_4" sap:VirtualizedContainerService.HintSize="464,22" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="486,1390">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="DoWhile_1" sap:VirtualizedContainerService.HintSize="512.666666666667,1558.66666666667" />
+      <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="512.666666666667,62.6666666666667" />
+      <sap2010:ViewStateData Id="Assign_3" sap:VirtualizedContainerService.HintSize="464,62.6666666666667" />
+      <sap2010:ViewStateData Id="ShowProgressBar_2" sap:VirtualizedContainerService.HintSize="288.666666666667,119.333333333333" />
+      <sap2010:ViewStateData Id="If_5" sap:VirtualizedContainerService.HintSize="464,274" />
+      <sap2010:ViewStateData Id="ShowProgressBar_3" sap:VirtualizedContainerService.HintSize="288.666666666667,119.333333333333" />
+      <sap2010:ViewStateData Id="If_6" sap:VirtualizedContainerService.HintSize="464,274" />
+      <sap2010:ViewStateData Id="ShowProgressBar_4" sap:VirtualizedContainerService.HintSize="288.666666666667,119.333333333333" />
+      <sap2010:ViewStateData Id="If_7" sap:VirtualizedContainerService.HintSize="464,274" />
+      <sap2010:ViewStateData Id="ShowProgressBar_5" sap:VirtualizedContainerService.HintSize="288.666666666667,119.333333333333" />
+      <sap2010:ViewStateData Id="If_8" sap:VirtualizedContainerService.HintSize="464,274" />
+      <sap2010:ViewStateData Id="Delay_5" sap:VirtualizedContainerService.HintSize="464,22" />
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="486,1504.66666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="DoWhile_2" sap:VirtualizedContainerService.HintSize="512.666666666667,1673.33333333333" />
+      <sap2010:ViewStateData Id="Delay_6" sap:VirtualizedContainerService.HintSize="512.666666666667,22" />
+      <sap2010:ViewStateData Id="CloseWindow_1" sap:VirtualizedContainerService.HintSize="512.666666666667,22" />
+      <sap2010:ViewStateData Id="Delay_2" sap:VirtualizedContainerService.HintSize="512.666666666667,22" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="534.666666666667,3684.66666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="DesktopNotification.Workflow1_1" sap:VirtualizedContainerService.HintSize="574.666666666667,3764.66666666667" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>
