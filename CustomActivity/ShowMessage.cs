@@ -6,51 +6,54 @@ using System.Drawing;
 
 namespace DesktopNotification
 {
-    public enum ColorThemeType
-    {
-        White,
-        Black,
-        Gray,
-        Blue
-    }
-
-    public enum WindowPositionType
-    {
-        TopLeft,
-        TopRight,
-        BottomLeft,
-        BottomRight
-    }
-
-    [DisplayName("Show Message")]
+    [LocalizedDisplayName(nameof(Properties.Resources.ShowMesageDisplayName))]
     [Designer(typeof(ShowMessageDesigner))]
     public class ShowMessage : CodeActivity
     {
+        public enum ColorThemeType
+        {
+            White,
+            Black,
+            Gray,
+            Blue
+        }
 
-        [Category("Input")]
-        [DisplayName("Title")]
-        public InArgument<String> Title { get; set; }
+        public enum WindowPositionType
+        {
+            TopLeft,
+            TopRight,
+            BottomLeft,
+            BottomRight
+        }
 
-        [Category("Input")]
-        [DisplayName("Message")]
-        public InArgument<String> Message { get; set; }
-
-        [Category("Design")]
-        [DisplayName("FontSize")]
-        public int FontSize { get; set; } = DEFAULT_FONT_SIZE;
-
-        [Category("Design")]
-        [DisplayName("ColorTheme")]
-        public ColorThemeType ColorTheme { get; set; } = ColorThemeType.Blue;
-
-        [Category("Design")]
-        [DisplayName("WindowPosition")]
-        public WindowPositionType WindowPosition { get; set; } = WindowPositionType.BottomRight;
-
-
-        private static string FORM_NAME = "UiPath-DesktopNotification";
         private static string FIXED_FONT_SET = "Meiryo UI";
         private static int DEFAULT_FONT_SIZE = 12;
+
+        [LocalizedCategory(nameof(Properties.Resources.InputCategory))]
+        [LocalizedDisplayName(nameof(Properties.Resources.TitleDisplayName))]
+        [LocalizedDescription(nameof(Properties.Resources.TitleDescription))]
+        public InArgument<string> Title { get; set; }
+
+        [LocalizedCategory(nameof(Properties.Resources.InputCategory))]
+        [LocalizedDisplayName(nameof(Properties.Resources.MessageDisplayName))]
+        [LocalizedDescription(nameof(Properties.Resources.MessageDescription))]
+        public InArgument<string> Message { get; set; }
+
+        [LocalizedCategory(nameof(Properties.Resources.DesignCategory))]
+        [LocalizedDisplayName(nameof(Properties.Resources.FontSizeDisplayName))]
+        [LocalizedDescription(nameof(Properties.Resources.FontSizeDescription))]
+        public int FontSize { get; set; } = DEFAULT_FONT_SIZE;
+
+        [LocalizedCategory(nameof(Properties.Resources.DesignCategory))]
+        [LocalizedDisplayName(nameof(Properties.Resources.ColorThemeDisplayName))]
+        [LocalizedDescription(nameof(Properties.Resources.ColorThemeDescription))]
+        public ColorThemeType ColorTheme { get; set; } = ColorThemeType.Blue;
+
+        [LocalizedCategory(nameof(Properties.Resources.DesignCategory))]
+        [LocalizedDisplayName(nameof(Properties.Resources.WindowPositionDisplayName))]
+        [LocalizedDescription(nameof(Properties.Resources.WindowPositionDescription))]
+        public WindowPositionType WindowPosition { get; set; } = WindowPositionType.BottomRight;
+
         protected Form form_;
         protected Color formBackColor_;
         protected Color formForeColor_;
@@ -61,9 +64,9 @@ namespace DesktopNotification
         {
             ConstructForm();
             UpdateForm(
-                Title.Get(context), 
-                Message.Get(context), 
-                0, 
+                Title.Get(context),
+                Message.Get(context),
+                0,
                 false);
         }
 
@@ -95,7 +98,6 @@ namespace DesktopNotification
 
         protected void ConstructForm()
         {
-
             switch (ColorTheme)
             {
                 case ColorThemeType.White:
@@ -136,7 +138,7 @@ namespace DesktopNotification
             {
                 for (var idx = 0; idx < Application.OpenForms.Count; idx++)
                 {
-                    if (Application.OpenForms[idx].Name.Equals(FORM_NAME))
+                    if (Application.OpenForms[idx].Name.Equals(Properties.Resources.FormName))
                     {
                         form_ = Application.OpenForms[idx];
                         break;
@@ -148,7 +150,7 @@ namespace DesktopNotification
             {
                 form_ = new Form
                 {
-                    Name = FORM_NAME,
+                    Name = Properties.Resources.FormName,
                     StartPosition = FormStartPosition.Manual,
                     Width = Convert.ToInt32(Screen.PrimaryScreen.WorkingArea.Width * 0.22),
                     Height = Convert.ToInt32(Screen.PrimaryScreen.WorkingArea.Height * 0.12),

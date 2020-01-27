@@ -3,22 +3,23 @@ using System.ComponentModel;
 
 namespace DesktopNotification
 {
-    [DisplayName("Show Progress Bar")]
+    [LocalizedDisplayName(nameof(Properties.Resources.ShowProgressBarDisplayName))]
     [Designer(typeof(ShowProgressBarDesigner))]
     public class ShowProgressBar : ShowMessage
     {
-        [Category("Input")]
-        [DisplayName("ProgressPercentage(0-100)")]
-        [Description("0-100")]
+        [LocalizedCategory(nameof(Properties.Resources.InputCategory))]
+        [LocalizedDisplayName(nameof(Properties.Resources.ProgressPercentageDisplayName))]
+        [LocalizedDescription(nameof(Properties.Resources.ProgressPercentageDescription))]
         public InArgument<int> ProgressPercentage { get; set; }
+
 
         protected override void Execute(CodeActivityContext context)
         {
             ConstructForm();
             UpdateForm(
-                Title.Get(context), 
-                Message.Get(context), 
-                ProgressPercentage.Get(context), 
+                Title.Get(context),
+                Message.Get(context),
+                ProgressPercentage.Get(context),
                 true);
         }
     }
