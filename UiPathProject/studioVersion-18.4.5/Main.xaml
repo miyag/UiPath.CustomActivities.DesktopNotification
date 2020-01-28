@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="412.666666666667,750" sap2010:WorkflowViewState.IdRef="Main_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DesktopNotification;assembly=DesktopNotification" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="438.666666666667,750" sap2010:WorkflowViewState.IdRef="Main_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DesktopNotification;assembly=DesktopNotification" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -47,16 +47,15 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="シーケンス" sap:VirtualizedContainerService.HintSize="392.666666666667,650" sap2010:WorkflowViewState.IdRef="Sequence_3">
+  <Sequence DisplayName="シーケンス" sap:VirtualizedContainerService.HintSize="418.666666666667,650" sap2010:WorkflowViewState.IdRef="Sequence_3">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="シーケンス" sap:VirtualizedContainerService.HintSize="350.666666666667,182.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence DisplayName="シーケンス" sap:VirtualizedContainerService.HintSize="376.666666666667,182.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
       <Sequence.Variables>
         <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="dicConfig" />
         <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="Result" />
@@ -68,10 +67,10 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <d:ShowMessage ColorTheme="Blue" DisplayName="Show Message" FontSize="12" sap:VirtualizedContainerService.HintSize="308.666666666667,90.6666666666667" sap2010:WorkflowViewState.IdRef="ShowMessage_1" Message="[&quot;ファイル：C:\Temp&quot;]" Title="[&quot;データの読込中&quot;]" WindowPosition="BottomRight" />
+      <d:ShowMessage ColorTheme="Blue" DisplayName="デスクトップにメッセージを表示" FontSize="12" sap:VirtualizedContainerService.HintSize="334.666666666667,90.6666666666667" sap2010:WorkflowViewState.IdRef="ShowMessage_1" Message="[&quot;message&quot;]" Title="[&quot;title&quot;]" WindowPosition="BottomRight" />
     </Sequence>
-    <Delay DisplayName="待機" Duration="[New TimeSpan(0,0,0,8)]" sap:VirtualizedContainerService.HintSize="350.666666666667,22" sap2010:WorkflowViewState.IdRef="Delay_3" />
-    <Sequence DisplayName="シーケンス" sap:VirtualizedContainerService.HintSize="350.666666666667,273.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Delay DisplayName="待機" Duration="[New TimeSpan(0,0,0,8)]" sap:VirtualizedContainerService.HintSize="376.666666666667,22" sap2010:WorkflowViewState.IdRef="Delay_3" />
+    <Sequence DisplayName="シーケンス" sap:VirtualizedContainerService.HintSize="376.666666666667,273.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Int32" Default="80" Name="idx" />
         <Variable x:TypeArguments="x:String" Name="RowID" />
@@ -81,8 +80,8 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <d:ShowProgressBar ColorTheme="Blue" DisplayName="Show Progress Bar" FontSize="12" sap:VirtualizedContainerService.HintSize="308.666666666667,119.333333333333" sap2010:WorkflowViewState.IdRef="ShowProgressBar_1" Message="[&quot;出力先：C:\temp&quot;]" ProgressPercentage="[idx]" Title="[&quot;データの変換中&quot;]" WindowPosition="BottomRight" />
-      <Delay DisplayName="待機" Duration="[New TimeSpan(0,0,0,8)]" sap:VirtualizedContainerService.HintSize="308.666666666667,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
+      <d:ShowProgressBar ColorTheme="Blue" DisplayName="デスクトップに進捗率を表示" FontSize="12" sap:VirtualizedContainerService.HintSize="334.666666666667,119.333333333333" sap2010:WorkflowViewState.IdRef="ShowProgressBar_1" Message="[&quot;mmmmesage&quot;]" ProgressPercentage="[10]" Title="[&quot;tttile&quot;]" WindowPosition="BottomRight" />
+      <Delay DisplayName="待機" Duration="[New TimeSpan(0,0,0,8)]" sap:VirtualizedContainerService.HintSize="334.666666666667,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
     </Sequence>
   </Sequence>
 </Activity>

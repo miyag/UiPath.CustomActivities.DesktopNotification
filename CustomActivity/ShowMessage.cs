@@ -6,64 +6,69 @@ using System.Drawing;
 
 namespace DesktopNotification
 {
-    public enum ColorThemeType
-    {
-        White,
-        Black,
-        Gray,
-        Blue
-    }
-
-    public enum WindowPositionType
-    {
-        TopLeft,
-        TopRight,
-        BottomLeft,
-        BottomRight
-    }
-
-    [DisplayName("Show Message")]
+    [LocalizedCategory("ShowMessageCategory")]
+    [LocalizedDisplayName("ShowMessageDisplayName")]
+    [LocalizedDescription("ShowMessageDescription")]
     [Designer(typeof(ShowMessageDesigner))]
     public class ShowMessage : CodeActivity
     {
+        public enum ColorThemeType
+        {
+            White,
+            Black,
+            Gray,
+            Blue
+        }
 
-        [Category("Input")]
-        [DisplayName("Title")]
-        public InArgument<String> Title { get; set; }
+        public enum WindowPositionType
+        {
+            TopLeft,
+            TopRight,
+            BottomLeft,
+            BottomRight
+        }
 
-        [Category("Input")]
-        [DisplayName("Message")]
-        public InArgument<String> Message { get; set; }
-
-        [Category("Design")]
-        [DisplayName("FontSize")]
-        public int FontSize { get; set; } = DEFAULT_FONT_SIZE;
-
-        [Category("Design")]
-        [DisplayName("ColorTheme")]
-        public ColorThemeType ColorTheme { get; set; } = ColorThemeType.Blue;
-
-        [Category("Design")]
-        [DisplayName("WindowPosition")]
-        public WindowPositionType WindowPosition { get; set; } = WindowPositionType.BottomRight;
-
-
-        private static string FORM_NAME = "UiPath-DesktopNotification";
         private static string FIXED_FONT_SET = "Meiryo UI";
         private static int DEFAULT_FONT_SIZE = 12;
         protected Form form_;
+        protected Point mousePoint;
         protected Color formBackColor_;
         protected Color formForeColor_;
         protected Color pBarBackColor_;
         protected Brush pBarForeColor_;
 
+        [LocalizedCategory("InputCategory")]
+        [LocalizedDisplayName("TitleDisplayName")]
+        [LocalizedDescription("TitleDescription")]
+        public InArgument<string> Title { get; set; }
+
+        [LocalizedCategory("InputCategory")]
+        [LocalizedDisplayName("MessageDisplayName")]
+        [LocalizedDescription("MessageDescription")]
+        public InArgument<string> Message { get; set; }
+
+        [LocalizedCategory("DesignCategory")]
+        [LocalizedDisplayName("FontSizeDisplayName")]
+        [LocalizedDescription("FontSizeDescription")]
+        public int FontSize { get; set; } = DEFAULT_FONT_SIZE;
+
+        [LocalizedCategory("DesignCategory")]
+        [LocalizedDisplayName("ColorThemeDisplayName")]
+        [LocalizedDescription("ColorThemeDescription")]
+        public ColorThemeType ColorTheme { get; set; } = ColorThemeType.Blue;
+
+        [LocalizedCategory("DesignCategory")]
+        [LocalizedDisplayName("WindowPositionDisplayName")]
+        [LocalizedDescription("WindowPositionDescription")]
+        public WindowPositionType WindowPosition { get; set; } = WindowPositionType.BottomRight;
+
         protected override void Execute(CodeActivityContext context)
         {
             ConstructForm();
             UpdateForm(
-                Title.Get(context), 
-                Message.Get(context), 
-                0, 
+                Title.Get(context),
+                Message.Get(context),
+                0,
                 false);
         }
 
@@ -95,7 +100,6 @@ namespace DesktopNotification
 
         protected void ConstructForm()
         {
-
             switch (ColorTheme)
             {
                 case ColorThemeType.White:
@@ -136,7 +140,7 @@ namespace DesktopNotification
             {
                 for (var idx = 0; idx < Application.OpenForms.Count; idx++)
                 {
-                    if (Application.OpenForms[idx].Name.Equals(FORM_NAME))
+                    if (Application.OpenForms[idx].Name.Equals(Properties.Resources.FormName))
                     {
                         form_ = Application.OpenForms[idx];
                         break;
@@ -148,7 +152,7 @@ namespace DesktopNotification
             {
                 form_ = new Form
                 {
-                    Name = FORM_NAME,
+                    Name = Properties.Resources.FormName,
                     StartPosition = FormStartPosition.Manual,
                     Width = Convert.ToInt32(Screen.PrimaryScreen.WorkingArea.Width * 0.22),
                     Height = Convert.ToInt32(Screen.PrimaryScreen.WorkingArea.Height * 0.12),
@@ -213,8 +217,28 @@ namespace DesktopNotification
                     Font = new Font(form_.Font.FontFamily, form_.Font.Size, FontStyle.Bold),
                     TextAlign = ContentAlignment.MiddleLeft
                 };
+                // Move Form Position
+                labelTitle.MouseDown += new MouseEventHandler(labelTitle_MouseDown);
+                labelTitle.MouseMove += new MouseEventHandler(labelTitle_MouseMove);
                 panel.Controls.Add(labelTitle);
             }
+
+            var buttonClose = (Button)panel.Controls["Close"];
+            if (buttonClose == null)
+            {
+                buttonClose = new Button()
+                {
+                    Name = "Close",
+                    Size = new Size(panel.Width - labelTitle.Width, labelTitle.Height),
+                    Location = new Point(labelTitle.Right, labelTitle.Top),
+                    FlatStyle = FlatStyle.Flat,
+                    Text = "×",
+                    TextAlign = ContentAlignment.MiddleCenter
+                };
+                buttonClose.FlatAppearance.BorderSize = 0;
+                buttonClose.Click += new System.EventHandler(this.buttonClose_Clicked);
+                panel.Controls.Add(buttonClose);
+            };
 
             var labelMsg = (Label)panel.Controls["Message"];
             if (labelMsg == null)
@@ -272,6 +296,24 @@ namespace DesktopNotification
                 };
                 panel.Controls.Add(pboxPbar);
             }
+        }
+
+        private void buttonClose_Clicked(object sender, EventArgs e)
+        {
+            form_.Close();
+            form_.Dispose();
+        }
+
+        private void labelTitle_MouseDown(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+                mousePoint = new Point(e.X, e.Y);
+        }
+
+        private void labelTitle_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+                form_.Location = new Point(form_.Location.X + e.X - mousePoint.X, form_.Location.Y + e.Y - mousePoint.Y);
         }
     }
 }
