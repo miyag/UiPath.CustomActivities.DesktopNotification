@@ -141,6 +141,9 @@
   <data name="FontSizeDisplayName" xml:space="preserve">
     <value>フォントサイズ</value>
   </data>
+  <data name="FormName" xml:space="preserve">
+    <value>UiPath-DesktopNotification</value>
+  </data>
   <data name="InputCategory" xml:space="preserve">
     <value>入力値</value>
   </data>

@@ -19,7 +19,7 @@ namespace DesktopNotification.Properties {
     // または Visual Studio のようなツールを使用して自動生成されました。
     // メンバーを追加または削除するには、.ResX ファイルを編集して、/str オプションと共に
     // ResGen を実行し直すか、または VS プロジェクトをビルドし直します。
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -47,7 +47,7 @@ namespace DesktopNotification.Properties {
         }
         
         /// <summary>
-        ///   すべてについて、現在のスレッドの CurrentUICulture プロパティをオーバーライドします
+        ///   厳密に型指定されたこのリソース クラスを使用して、すべての検索リソースに対し、
         ///   現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -66,6 +66,15 @@ namespace DesktopNotification.Properties {
         public static string CloseWindowCategory {
             get {
                 return ResourceManager.GetString("CloseWindowCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Close Notification Window on Desktop に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CloseWindowDescription {
+            get {
+                return ResourceManager.GetString("CloseWindowDescription", resourceCulture);
             }
         }
         
@@ -160,7 +169,7 @@ namespace DesktopNotification.Properties {
         }
         
         /// <summary>
-        ///   Percentage（0-100） に類似しているローカライズされた文字列を検索します。
+        ///   Percentage（0-100) に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string ProgressPercentageDescription {
             get {

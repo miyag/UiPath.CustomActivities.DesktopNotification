@@ -120,6 +120,9 @@
   <data name="CloseWindowCategory" xml:space="preserve">
     <value>Desktop Notification</value>
   </data>
+  <data name="CloseWindowDescription" xml:space="preserve">
+    <value>Close Notification Window on Desktop</value>
+  </data>
   <data name="CloseWindowDisplayName" xml:space="preserve">
     <value>Close Notification Window</value>
   </data>
@@ -151,7 +154,7 @@
     <value>Message</value>
   </data>
   <data name="ProgressPercentageDescription" xml:space="preserve">
-    <value>Percentage（0-100）</value>
+    <value>Percentage（0-100)</value>
   </data>
   <data name="ProgressPercentageDisplayName" xml:space="preserve">
     <value>Progress</value>
