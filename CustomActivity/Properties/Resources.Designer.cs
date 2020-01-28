@@ -19,7 +19,7 @@ namespace DesktopNotification.Properties {
     // または Visual Studio のようなツールを使用して自動生成されました。
     // メンバーを追加または削除するには、.ResX ファイルを編集して、/str オプションと共に
     // ResGen を実行し直すか、または VS プロジェクトをビルドし直します。
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -47,7 +47,7 @@ namespace DesktopNotification.Properties {
         }
         
         /// <summary>
-        ///   厳密に型指定されたこのリソース クラスを使用して、すべての検索リソースに対し、
+        ///   すべてについて、現在のスレッドの CurrentUICulture プロパティをオーバーライドします
         ///   現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -57,6 +57,15 @@ namespace DesktopNotification.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Desktop Notification に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string CloseWindowCategory {
+            get {
+                return ResourceManager.GetString("CloseWindowCategory", resourceCulture);
             }
         }
         
@@ -169,15 +178,6 @@ namespace DesktopNotification.Properties {
         }
         
         /// <summary>
-        ///   Show Mesage に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        public static string ShowMesageDisplayName {
-            get {
-                return ResourceManager.GetString("ShowMesageDisplayName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Desktop Notification に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string ShowMessageCategory {
@@ -187,11 +187,38 @@ namespace DesktopNotification.Properties {
         }
         
         /// <summary>
+        ///   Show Mesage Window on Desktop に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ShowMessageDescription {
+            get {
+                return ResourceManager.GetString("ShowMessageDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Show Mesage に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ShowMessageDisplayName {
+            get {
+                return ResourceManager.GetString("ShowMessageDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Desktop Notification に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string ShowProgressBarCategory {
             get {
                 return ResourceManager.GetString("ShowProgressBarCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Show Progress Bar and Mesage Window on Desktop に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ShowProgressBarDescription {
+            get {
+                return ResourceManager.GetString("ShowProgressBarDescription", resourceCulture);
             }
         }
         

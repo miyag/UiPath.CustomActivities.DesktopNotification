@@ -6,7 +6,9 @@ using System.Drawing;
 
 namespace DesktopNotification
 {
-    [LocalizedDisplayName(nameof(Properties.Resources.ShowMesageDisplayName))]
+    [LocalizedCategory("ShowMessageCategory")]
+    [LocalizedDisplayName("ShowMessageDisplayName")]
+    [LocalizedDescription("ShowMessageDescription")]
     [Designer(typeof(ShowMessageDesigner))]
     public class ShowMessage : CodeActivity
     {
@@ -28,37 +30,37 @@ namespace DesktopNotification
 
         private static string FIXED_FONT_SET = "Meiryo UI";
         private static int DEFAULT_FONT_SIZE = 12;
-
-        [LocalizedCategory(nameof(Properties.Resources.InputCategory))]
-        [LocalizedDisplayName(nameof(Properties.Resources.TitleDisplayName))]
-        [LocalizedDescription(nameof(Properties.Resources.TitleDescription))]
-        public InArgument<string> Title { get; set; }
-
-        [LocalizedCategory(nameof(Properties.Resources.InputCategory))]
-        [LocalizedDisplayName(nameof(Properties.Resources.MessageDisplayName))]
-        [LocalizedDescription(nameof(Properties.Resources.MessageDescription))]
-        public InArgument<string> Message { get; set; }
-
-        [LocalizedCategory(nameof(Properties.Resources.DesignCategory))]
-        [LocalizedDisplayName(nameof(Properties.Resources.FontSizeDisplayName))]
-        [LocalizedDescription(nameof(Properties.Resources.FontSizeDescription))]
-        public int FontSize { get; set; } = DEFAULT_FONT_SIZE;
-
-        [LocalizedCategory(nameof(Properties.Resources.DesignCategory))]
-        [LocalizedDisplayName(nameof(Properties.Resources.ColorThemeDisplayName))]
-        [LocalizedDescription(nameof(Properties.Resources.ColorThemeDescription))]
-        public ColorThemeType ColorTheme { get; set; } = ColorThemeType.Blue;
-
-        [LocalizedCategory(nameof(Properties.Resources.DesignCategory))]
-        [LocalizedDisplayName(nameof(Properties.Resources.WindowPositionDisplayName))]
-        [LocalizedDescription(nameof(Properties.Resources.WindowPositionDescription))]
-        public WindowPositionType WindowPosition { get; set; } = WindowPositionType.BottomRight;
-
         protected Form form_;
+        protected Point mousePoint;
         protected Color formBackColor_;
         protected Color formForeColor_;
         protected Color pBarBackColor_;
         protected Brush pBarForeColor_;
+
+        [LocalizedCategory("InputCategory")]
+        [LocalizedDisplayName("TitleDisplayName")]
+        [LocalizedDescription("TitleDescription")]
+        public InArgument<string> Title { get; set; }
+
+        [LocalizedCategory("InputCategory")]
+        [LocalizedDisplayName("MessageDisplayName")]
+        [LocalizedDescription("MessageDescription")]
+        public InArgument<string> Message { get; set; }
+
+        [LocalizedCategory("DesignCategory")]
+        [LocalizedDisplayName("FontSizeDisplayName")]
+        [LocalizedDescription("FontSizeDescription")]
+        public int FontSize { get; set; } = DEFAULT_FONT_SIZE;
+
+        [LocalizedCategory("DesignCategory")]
+        [LocalizedDisplayName("ColorThemeDisplayName")]
+        [LocalizedDescription("ColorThemeDescription")]
+        public ColorThemeType ColorTheme { get; set; } = ColorThemeType.Blue;
+
+        [LocalizedCategory("DesignCategory")]
+        [LocalizedDisplayName("WindowPositionDisplayName")]
+        [LocalizedDescription("WindowPositionDescription")]
+        public WindowPositionType WindowPosition { get; set; } = WindowPositionType.BottomRight;
 
         protected override void Execute(CodeActivityContext context)
         {
@@ -215,8 +217,28 @@ namespace DesktopNotification
                     Font = new Font(form_.Font.FontFamily, form_.Font.Size, FontStyle.Bold),
                     TextAlign = ContentAlignment.MiddleLeft
                 };
+                // Move Form Position
+                labelTitle.MouseDown += new MouseEventHandler(labelTitle_MouseDown);
+                labelTitle.MouseMove += new MouseEventHandler(labelTitle_MouseMove);
                 panel.Controls.Add(labelTitle);
             }
+
+            var buttonClose = (Button)panel.Controls["Close"];
+            if (buttonClose == null)
+            {
+                buttonClose = new Button()
+                {
+                    Name = "Close",
+                    Size = new Size(panel.Width - labelTitle.Width, labelTitle.Height),
+                    Location = new Point(labelTitle.Right, labelTitle.Top),
+                    FlatStyle = FlatStyle.Flat,
+                    Text = "×",
+                    TextAlign = ContentAlignment.MiddleCenter
+                };
+                buttonClose.FlatAppearance.BorderSize = 0;
+                buttonClose.Click += new System.EventHandler(this.buttonClose_Clicked);
+                panel.Controls.Add(buttonClose);
+            };
 
             var labelMsg = (Label)panel.Controls["Message"];
             if (labelMsg == null)
@@ -274,6 +296,24 @@ namespace DesktopNotification
                 };
                 panel.Controls.Add(pboxPbar);
             }
+        }
+
+        private void buttonClose_Clicked(object sender, EventArgs e)
+        {
+            form_.Close();
+            form_.Dispose();
+        }
+
+        private void labelTitle_MouseDown(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+                mousePoint = new Point(e.X, e.Y);
+        }
+
+        private void labelTitle_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+                form_.Location = new Point(form_.Location.X + e.X - mousePoint.X, form_.Location.Y + e.Y - mousePoint.Y);
         }
     }
 }

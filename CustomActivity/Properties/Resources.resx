@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CloseWindowCategory" xml:space="preserve">
+    <value>Desktop Notification</value>
+  </data>
   <data name="CloseWindowDisplayName" xml:space="preserve">
     <value>Close Notification Window</value>
   </data>
@@ -153,14 +156,20 @@
   <data name="ProgressPercentageDisplayName" xml:space="preserve">
     <value>Progress</value>
   </data>
-  <data name="ShowMesageDisplayName" xml:space="preserve">
-    <value>Show Mesage</value>
-  </data>
   <data name="ShowMessageCategory" xml:space="preserve">
     <value>Desktop Notification</value>
   </data>
+  <data name="ShowMessageDescription" xml:space="preserve">
+    <value>Show Mesage Window on Desktop</value>
+  </data>
+  <data name="ShowMessageDisplayName" xml:space="preserve">
+    <value>Show Mesage</value>
+  </data>
   <data name="ShowProgressBarCategory" xml:space="preserve">
     <value>Desktop Notification</value>
+  </data>
+  <data name="ShowProgressBarDescription" xml:space="preserve">
+    <value>Show Progress Bar and Mesage Window on Desktop</value>
   </data>
   <data name="ShowProgressBarDisplayName" xml:space="preserve">
     <value>Show ProgressBar</value>

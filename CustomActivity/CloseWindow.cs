@@ -3,7 +3,9 @@ using System.Windows.Forms;
 
 namespace DesktopNotification
 {
-    [LocalizedDisplayName(nameof(Properties.Resources.CloseWindowDisplayName))]
+    [LocalizedCategory("CloseWindowCategory")]
+    [LocalizedDisplayName("CloseWindowDisplayName")]
+    [LocalizedDescription("CloseWindowDescription")]
     public class CloseWindow : CodeActivity
     {
         protected override void Execute(CodeActivityContext context)

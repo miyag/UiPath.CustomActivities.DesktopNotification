@@ -54,7 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CloseWindow.cs" />
-    <Compile Include="Localization.cs" />
+    <Compile Include="LocalizedCategoryAttribute.cs" />
+    <Compile Include="LocalizedDescriptionAttribute.cs" />
+    <Compile Include="LocalizedDisplayNameAttribute.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
