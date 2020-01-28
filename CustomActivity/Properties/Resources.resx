@@ -154,7 +154,7 @@
     <value>Message</value>
   </data>
   <data name="ProgressPercentageDescription" xml:space="preserve">
-    <value>Percentage（0-100)</value>
+    <value>Percentage (0-100)</value>
   </data>
   <data name="ProgressPercentageDisplayName" xml:space="preserve">
     <value>Progress</value>

@@ -169,7 +169,7 @@ namespace DesktopNotification.Properties {
         }
         
         /// <summary>
-        ///   Percentage（0-100) に類似しているローカライズされた文字列を検索します。
+        ///   Percentage (0-100) に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string ProgressPercentageDescription {
             get {
