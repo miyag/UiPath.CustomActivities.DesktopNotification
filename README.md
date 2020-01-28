@@ -6,6 +6,7 @@ Custom UiPath Activities for desktop notification.
 ## Component Name
 
 DesktopNotification
+
 デスクトップ通知
 
 ## Primary Language Select
@@ -15,11 +16,13 @@ ja en
 ## Summary
 
 Show notification window on the bottom-right corner.
+
 デスクトップの右下に実行中のメッセージやプログレスバー（進捗率）を表示します
 
 ## Benefits
 
 Useful to inform process messsage and progress bar. 
+
 UiPath の実行中の内容を画面に表示し、進捗を確認できるようになります。
 
 ## Description
@@ -33,6 +36,7 @@ UiPath の実行中の内容を画面に表示し、進捗を確認できるよ�
 ## Tags
 
 Desktop Demo Debug
+
 デスクトップ デモ デバッグ
 
 ## Dependencies
@@ -50,7 +54,8 @@ Studio 2018.2.3
 
 InArguments
 
-\<string> Title <br>
+\<string> Title 
+
 \<string> Message <br>
 \<string> ProgressPercentage <br>
 \<string> DisplayProgress <br>
