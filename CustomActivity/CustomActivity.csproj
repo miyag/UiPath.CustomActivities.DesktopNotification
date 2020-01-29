@@ -68,6 +68,9 @@
       <DependentUpon>Resources.ja.resx</DependentUpon>
     </Compile>
     <Compile Include="ShowMessage.cs" />
+    <Compile Include="CloseWindowDesigner.xaml.cs">
+      <DependentUpon>CloseWindowDesigner.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ShowProgressBarDesigner.xaml.cs">
       <DependentUpon>ShowProgressBarDesigner.xaml</DependentUpon>
     </Compile>
@@ -88,6 +91,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="CloseWindowDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ShowProgressBarDesigner.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -96,6 +103,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\shape_square_add.png" />
+    <Resource Include="images\shape_square_delete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
