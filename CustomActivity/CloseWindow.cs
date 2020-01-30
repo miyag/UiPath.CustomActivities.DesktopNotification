@@ -1,4 +1,5 @@
 ﻿using System.Activities;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace DesktopNotification
@@ -6,6 +7,7 @@ namespace DesktopNotification
     [LocalizedCategory("CloseWindowCategory")]
     [LocalizedDisplayName("CloseWindowDisplayName")]
     [LocalizedDescription("CloseWindowDescription")]
+    [Designer(typeof(CloseWindowDesigner))]
     public class CloseWindow : CodeActivity
     {
         protected override void Execute(CodeActivityContext context)

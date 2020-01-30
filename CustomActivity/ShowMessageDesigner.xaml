@@ -13,6 +13,24 @@
             <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter" />
         </ResourceDictionary>
     </sap:ActivityDesigner.Resources>
+    <sap:ActivityDesigner.Icon>
+        <DrawingBrush>
+            <DrawingBrush.Drawing>
+                <DrawingGroup>
+                    <DrawingGroup.Children>
+                        <DrawingGroup>
+                            <DrawingGroup.Transform>
+                                <MatrixTransform Matrix="1,0,0,1,0,0"/>
+                            </DrawingGroup.Transform>
+                            <DrawingGroup.Children>
+                                <ImageDrawing ImageSource="images/shape_square_add.png" Rect="0,0,16,16"/>
+                            </DrawingGroup.Children>
+                        </DrawingGroup>
+                    </DrawingGroup.Children>
+                </DrawingGroup>
+            </DrawingBrush.Drawing>
+        </DrawingBrush>
+    </sap:ActivityDesigner.Icon>
     <Grid>
         <StackPanel>
             <Grid Height="26" Margin="0,0,0,0">
