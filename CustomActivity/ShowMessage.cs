@@ -29,7 +29,7 @@ namespace DesktopNotification
         }
 
         private static string FIXED_FONT_SET = "Meiryo UI";
-        private static int DEFAULT_FONT_SIZE = 12;
+        private static int DEFAULT_FONT_SIZE = 9;
         protected Form form_;
         protected Point mousePoint;
         protected Color formBackColor_;
@@ -157,13 +157,13 @@ namespace DesktopNotification
                     Width = Convert.ToInt32(Screen.PrimaryScreen.WorkingArea.Width * 0.22),
                     Height = Convert.ToInt32(Screen.PrimaryScreen.WorkingArea.Height * 0.12),
                     FormBorderStyle = FormBorderStyle.None,
-                    Font = new Font(FIXED_FONT_SET, FontSize, FontStyle.Regular),
                     Opacity = 1.0
                 };
                 form_.Padding = new Padding(Convert.ToInt32(form_.Height * 0.1));
                 form_.Show();
             }
 
+            form_.Font = new Font(FIXED_FONT_SET, FontSize, FontStyle.Regular);
             form_.BackColor = formBackColor_;
             form_.ForeColor = formForeColor_;
 
@@ -260,7 +260,7 @@ namespace DesktopNotification
                 labelDate = new Label()
                 {
                     Name = "Datetime",
-                    Size = new Size(Convert.ToInt32(panel.Width * 0.20), panel.Height - labelTitle.Height - labelMsg.Height),
+                    Size = new Size(Convert.ToInt32(panel.Width * 0.25), panel.Height - labelTitle.Height - labelMsg.Height),
                     TextAlign = ContentAlignment.MiddleRight,
                     Font = new Font(form_.Font.FontFamily, form_.Font.Size - 2, FontStyle.Regular),
                     Padding = new Padding(0, 0, 0, 0)
@@ -291,7 +291,7 @@ namespace DesktopNotification
                 {
                     Name = "ProgressBar",
                     Location = new Point(labelMsg.Left, labelMsg.Bottom + Convert.ToInt32(labelDate.Height * 0.3)),
-                    Size = new Size(Convert.ToInt32(panel.Width * 0.65), Convert.ToInt32(labelDate.Height * 0.5)),
+                    Size = new Size(Convert.ToInt32(panel.Width * 0.60), Convert.ToInt32(labelDate.Height * 0.5)),
                     BorderStyle = BorderStyle.FixedSingle,
                 };
                 panel.Controls.Add(pboxPbar);

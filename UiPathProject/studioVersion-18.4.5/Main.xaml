@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="438.666666666667,750" sap2010:WorkflowViewState.IdRef="Main_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DesktopNotification;assembly=DesktopNotification" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="475,1395" sap2010:WorkflowViewState.IdRef="Main_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DesktopNotification;assembly=DesktopNotification" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -49,39 +49,46 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="シーケンス" sap:VirtualizedContainerService.HintSize="418.666666666667,650" sap2010:WorkflowViewState.IdRef="Sequence_3">
+  <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="455,1335" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="dicConfig" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="Result" />
+      <Variable x:TypeArguments="x:String" Name="value" />
+      <Variable x:TypeArguments="x:String" Name="ptn" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="index" />
+      <Variable x:TypeArguments="x:String" Name="RowID" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="シーケンス" sap:VirtualizedContainerService.HintSize="376.666666666667,182.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
-      <Sequence.Variables>
-        <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="dicConfig" />
-        <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="Result" />
-        <Variable x:TypeArguments="x:String" Name="value" />
-        <Variable x:TypeArguments="x:String" Name="ptn" />
-      </Sequence.Variables>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <d:ShowMessage ColorTheme="Blue" DisplayName="デスクトップにメッセージを表示" FontSize="12" sap:VirtualizedContainerService.HintSize="334.666666666667,90.6666666666667" sap2010:WorkflowViewState.IdRef="ShowMessage_1" Message="[&quot;message&quot;]" Title="[&quot;title&quot;]" WindowPosition="BottomRight" />
-    </Sequence>
-    <Delay DisplayName="待機" Duration="[New TimeSpan(0,0,0,8)]" sap:VirtualizedContainerService.HintSize="376.666666666667,22" sap2010:WorkflowViewState.IdRef="Delay_3" />
-    <Sequence DisplayName="シーケンス" sap:VirtualizedContainerService.HintSize="376.666666666667,273.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
-      <Sequence.Variables>
-        <Variable x:TypeArguments="x:Int32" Default="80" Name="idx" />
-        <Variable x:TypeArguments="x:String" Name="RowID" />
-      </Sequence.Variables>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <d:ShowProgressBar ColorTheme="Blue" DisplayName="デスクトップに進捗率を表示" FontSize="12" sap:VirtualizedContainerService.HintSize="334.666666666667,119.333333333333" sap2010:WorkflowViewState.IdRef="ShowProgressBar_1" Message="[&quot;mmmmesage&quot;]" ProgressPercentage="[10]" Title="[&quot;tttile&quot;]" WindowPosition="BottomRight" />
-      <Delay DisplayName="待機" Duration="[New TimeSpan(0,0,0,8)]" sap:VirtualizedContainerService.HintSize="334.666666666667,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
-    </Sequence>
+    <d:ShowMessage ColorTheme="White" DisplayName="Show Mesage" FontSize="9" sap:VirtualizedContainerService.HintSize="413,91" sap2010:WorkflowViewState.IdRef="ShowMessage_4" Message="[&quot;Color=White,  Position=BottomRight&quot;]" Title="[&quot;[Demo-1] Show Message&quot;]" WindowPosition="BottomRight" />
+    <Delay Duration="[New TimeSpan(0,0,0,0,1400)]" sap:VirtualizedContainerService.HintSize="413,22" sap2010:WorkflowViewState.IdRef="Delay_3" />
+    <d:ShowMessage ColorTheme="Black" DisplayName="Show Mesage" FontSize="9" sap:VirtualizedContainerService.HintSize="413,91" sap2010:WorkflowViewState.IdRef="ShowMessage_7" Message="[&quot;Color=Black,  [Position] BottomLeft&quot;]" Title="[&quot;[Demo-1] Show Message&quot;]" WindowPosition="BottomLeft" />
+    <Delay Duration="[New TimeSpan(0,0,0,0,1400)]" sap:VirtualizedContainerService.HintSize="413,22" sap2010:WorkflowViewState.IdRef="Delay_4" />
+    <d:ShowMessage ColorTheme="Gray" DisplayName="Show Mesage" FontSize="9" sap:VirtualizedContainerService.HintSize="413,91" sap2010:WorkflowViewState.IdRef="ShowMessage_5" Message="[&quot;[Color] Gray  [Position] TopLeft&quot;]" Title="[&quot;[Demo-1] Show Message&quot;]" WindowPosition="TopLeft" />
+    <Delay Duration="[New TimeSpan(0,0,0,0,1400)]" sap:VirtualizedContainerService.HintSize="413,22" sap2010:WorkflowViewState.IdRef="Delay_5" />
+    <d:ShowMessage ColorTheme="Blue" DisplayName="Show Mesage" FontSize="9" sap:VirtualizedContainerService.HintSize="413,91" sap2010:WorkflowViewState.IdRef="ShowMessage_6" Message="[&quot;[Color] Blue  [Position] TopRight&quot;]" Title="[&quot;[Demo-1] Show Message&quot;]" WindowPosition="TopRight" />
+    <Delay Duration="[New TimeSpan(0,0,0,0,2700)]" sap:VirtualizedContainerService.HintSize="413,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+    <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="413,409" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Enumerable.Range(1, 100)]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:Int32">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Int32" Name="idx" />
+          </ActivityAction.Argument>
+          <Sequence sap:VirtualizedContainerService.HintSize="377,274" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <d:ShowProgressBar ColorTheme="White" DisplayName="Show ProgressBar" FontSize="9" sap:VirtualizedContainerService.HintSize="335,120" sap2010:WorkflowViewState.IdRef="ShowProgressBar_2" Message="[&quot;count up - 1 to 100&quot;]" ProgressPercentage="[idx]" Title="[&quot;[Demo-2] Show Progress Message&quot;]" WindowPosition="BottomRight" />
+            <Delay Duration="[New TimeSpan(0,0,0,0,40)]" sap:VirtualizedContainerService.HintSize="335,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+    <d:CloseWindow DisplayName="Close Notification Window" sap:VirtualizedContainerService.HintSize="413,22" sap2010:WorkflowViewState.IdRef="CloseWindow_2" />
   </Sequence>
 </Activity>
