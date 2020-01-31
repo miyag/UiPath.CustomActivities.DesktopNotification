@@ -85,7 +85,7 @@ No Dependencies
 
 ## Media
 
-<img src="/images/window.png" alt="">
-<img src="/images/demo.gif" alt="">
-<img src="/images/studio.png" alt="">
-<img src="/images/studio-jp.png" alt="">
+<img src="/Images/window.png" alt="">
+<img src="/Images/demo.gif" alt="">
+<img src="/Images/studio.png" alt="">
+<img src="/Images/studio-jp.png" alt="">
