@@ -3,7 +3,7 @@
   "description": "studioVersion-18.4.5",
   "main": "Main.xaml",
   "dependencies": {
-    "UiPath.DesktopNotification.Activities": "[1.4.13]",
+    "UiPath.DesktopNotification.Activities": "[1.1.0]",
     "UiPath.Excel.Activities": "[2.5.1]",
     "UiPath.Mail.Activities": "[1.3.0]",
     "UiPath.System.Activities": "[18.4.2]",
