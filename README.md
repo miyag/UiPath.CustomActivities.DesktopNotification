@@ -61,6 +61,8 @@ There are some parameters:
 
 ## Process/Industry
 
+Finance & Accounting Legal Human Resources Information Technology Sales
+
 金融 & 財務 法務 人事 IT 営業 & 販売
 
 ## Tags
@@ -81,4 +83,9 @@ No Dependencies
 
 依存なし
 
+## Media
 
+<img src="/images/window.png" alt="">
+<img src="/images/demo.gif" alt="">
+<img src="/images/studio.png" alt="">
+<img src="/images/studio-jp.png" alt="">
